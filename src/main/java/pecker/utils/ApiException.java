@@ -1,6 +1,4 @@
-package com.zhongping.utils.exception;
-
-import com.zhongping.enums.ReqEnums;
+package pecker.utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +24,7 @@ public class ApiException extends RuntimeException {
 		this.errorMessage = errorMessage;
 	}
 
-	public ApiException(int code,String errorMessage) {
+	public ApiException(int code, String errorMessage) {
 		super();
 		this.level = ExceptionLevel.SLIGHT;
 		this.module = "";
@@ -34,15 +32,15 @@ public class ApiException extends RuntimeException {
 		this.errorMessage = errorMessage;
 	}
 
-	public ApiException(ReqEnums enums) {
-		super();
-		this.level = ExceptionLevel.SLIGHT;
-		this.module = "";
-		this.errorCode = enums.getCode();
-		this.errorMessage = enums.getMsg();
-	}
+//	public ApiException(ReqEnums enums) {
+//		super();
+//		this.level = ExceptionLevel.SLIGHT;
+//		this.module = "";
+//		this.errorCode = enums.getCode();
+//		this.errorMessage = enums.getMsg();
+//	}
 
-	public ApiException(ExceptionLevel level,int code,String errorMessage) {
+	public ApiException(ExceptionLevel level, int code, String errorMessage) {
 		super();
 		this.level = level;
 		this.module = "";

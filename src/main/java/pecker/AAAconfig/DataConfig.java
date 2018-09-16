@@ -1,4 +1,4 @@
-package pecker.config;
+package pecker.AAAconfig;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

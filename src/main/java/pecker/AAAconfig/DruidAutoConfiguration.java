@@ -1,4 +1,4 @@
-package pecker.config;
+package pecker.AAAconfig;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
@@ -69,7 +69,7 @@ public class DruidAutoConfiguration {
         Interceptor[] plugins = new Interceptor[]{pageHelper()};
         sessionFactory.setPlugins(plugins);
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/business/*.xml"));
+                .getResources("classpath:mapper/*.xml"));
         return sessionFactory.getObject();
     }
 

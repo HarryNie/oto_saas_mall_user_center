@@ -1,4 +1,4 @@
-package pecker.utils;
+package pecker.enums;
 
 /**
  * @Author hongql
@@ -38,7 +38,7 @@ public enum ResultCode {
     public int code;
     public String message;
 
-    ResultCode(int code ,String name){
+    ResultCode(int code , String name){
         this.code = code;
         this.message = name;
     }

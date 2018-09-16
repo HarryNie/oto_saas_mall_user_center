@@ -1,11 +1,7 @@
-package com.zhongping.controller;
+package pecker.rest;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.zhongping.enums.ReqEnums;
-import com.zhongping.utils.api.ApiMessage;
-import com.zhongping.utils.api.ApiMessageUtil;
-import com.zhongping.utils.exception.ApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,6 +13,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.NativeWebRequest;
+import pecker.enums.ResultCode;
+import pecker.utils.ApiException;
+import pecker.utils.ApiMessage;
+import pecker.utils.ApiMessageUtil;
 
 import javax.validation.ConstraintViolationException;
 import java.lang.reflect.Method;
@@ -45,7 +45,7 @@ public class ControllerErrorHandller {
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
 
-        return ApiMessageUtil.failure(ReqEnums.REQ_ERROR);
+        return ApiMessageUtil.failure(ResultCode.PARAM_ERROR);
     }
 
     /**
@@ -58,7 +58,7 @@ public class ControllerErrorHandller {
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
 
-        return ApiMessageUtil.failure(ReqEnums.REQ_ERROR);
+        return ApiMessageUtil.failure(ResultCode.PARAM_ERROR);
     }
 
     /**
@@ -71,7 +71,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.REQ_ERROR);
+        return ApiMessageUtil.failure(ResultCode.PARAM_ERROR);
     }
 
     /**
@@ -84,7 +84,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.REQ_ERROR);
+        return ApiMessageUtil.failure(ResultCode.PARAM_ERROR);
     }
 
     /**
@@ -96,7 +96,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.REQ_ERROR);
+        return ApiMessageUtil.failure(ResultCode.PARAM_ERROR);
     }
 
     /**
@@ -108,7 +108,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
 
@@ -134,7 +134,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                   ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
     /**
@@ -146,7 +146,7 @@ public class ControllerErrorHandller {
         log.error("code:{}, message:{}, request parameters:{}",
                 ex.getErrorCode(), ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
     /**
@@ -158,7 +158,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR.getCode(),"数据格式错误！");
+        return ApiMessageUtil.failure(ResultCode.ERROR.code,"数据格式错误！");
     }
 
     /**
@@ -170,7 +170,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
     /**
@@ -182,7 +182,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
     /**
@@ -194,7 +194,7 @@ public class ControllerErrorHandller {
         log.error("message:{}, request parameters:{}",
                 ex.getMessage(),
                 getObjString(request.getParameterMap()), ex);
-        return ApiMessageUtil.failure(ReqEnums.SYS_ERROR);
+        return ApiMessageUtil.failure(ResultCode.ERROR);
     }
 
     private String getObjString(Object obj) {
