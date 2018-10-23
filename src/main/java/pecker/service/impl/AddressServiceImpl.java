@@ -209,6 +209,9 @@ public class AddressServiceImpl implements AddressService {
             jsonObject.put("county", county);
             jsonObject.put("address", address);
             jsonObject.remove("receiverAddress");
+        }else {
+            jsonObject.put("address", receiverAddress);
+            jsonObject.remove("receiverAddress");
         }
 
         jsonObject.put("detail", "");
